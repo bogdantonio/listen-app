@@ -1,0 +1,62 @@
+<% content_for :page_styles do %>
+  <%= stylesheet_link_tag "login", "data-turbo-track": "reload" %>
+<% end %>
+
+<main class="auth-page">
+  <section class="auth-card">
+
+    <div class="auth-heading">
+      <%= image_tag "audio-waveform.svg",
+          class: "auth-logo",
+          alt: "Listen logo" %>
+
+      <h1>Welcome back<span class="orange-text">.</span></h1>
+      <p>Log in to your Listen account.</p>
+    </div>
+
+    <%= form_with url: login_path,
+                  local: true,
+                  method: :post,
+                  html: { class: "auth-form" } do %>
+
+      <div class="form-group">
+        <%= label_tag :email, "Email address" %>
+        <%= email_field_tag :email, nil,
+            placeholder: "you@example.com",
+            autocomplete: "email",
+            required: true,
+            class: "auth-input" %>
+      </div>
+
+      <div class="form-group">
+        <div class="password-heading">
+          <%= label_tag :password, "Password" %>
+
+          <%= link_to "Forgot password?",
+              password_reset_path,
+              class: "forgot-link" %>
+        </div>
+
+        <%= password_field_tag :password, nil,
+            placeholder: "Enter your password",
+            autocomplete: "current-password",
+            required: true,
+            class: "auth-input" %>
+      </div>
+
+      <%= submit_tag "Log in", class: "auth-button" %>
+
+    <% end %>
+
+    <div class="auth-divider">
+      <span>NEW TO LISTEN?</span>
+    </div>
+
+    <div class="auth-footer">
+      <p>Discover your own listening space.</p>
+      <%= link_to "Create an account", sign_up_path,
+          class: "signup-button" %>
+    </div>
+
+  </section>
+</main>

@@ -1,0 +1,330 @@
+/* ========================================
+   SPLASH PAGE
+======================================== */
+
+.splash-page {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+    background: var(--midnight-black);
+    color: var(--text-primary);
+}
+
+
+/* ========================================
+    BRAND ICON
+======================================== */
+
+.brand-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* ========================================
+   VINYL BACKGROUND
+======================================== */
+
+.splash-vinyl {
+    position: absolute;
+    z-index: -3;
+
+    top: -15%;
+    right: -17%;
+
+    width: 95%;
+    height: 130%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.85;
+    filter: contrast(1.15) brightness(0.75);
+}
+
+/* ========================================
+   DARK OVERLAY
+======================================== */
+
+.splash-overlay {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            #080B14 0%,
+            rgba(8, 11, 20, 0.98) 23%,
+            rgba(8, 11, 20, 0.88) 38%,
+            rgba(8, 11, 20, 0.40) 65%,
+            rgba(8, 11, 20, 0.12) 100%);
+
+    pointer-events: none;
+}
+
+/* ========================================
+   COLORED LIGHTING
+======================================== */
+
+.splash-glow {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* Electric blue lighting at top-left */
+
+.splash-glow-blue {
+    width: 850px;
+    height: 850px;
+
+    top: -480px;
+    left: -400px;
+
+    background: radial-gradient(circle,
+            rgba(57, 123, 255, 0.27) 0%,
+            rgba(57, 123, 255, 0.12) 35%,
+            transparent 70%);
+}
+
+/* Cantaloupe orange lighting at bottom-right */
+
+.splash-glow-orange {
+    width: 900px;
+    height: 900px;
+
+    bottom: -550px;
+    right: -350px;
+
+    background: radial-gradient(circle,
+            rgba(255, 173, 122, 0.25) 0%,
+            rgba(255, 173, 122, 0.10) 40%,
+            transparent 70%);
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.splash-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1600px;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    margin: 0 auto;
+    padding: 55px 8%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.splash-header {
+    display: flex;
+    align-items: center;
+}
+
+.splash-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand-icon {
+    color: var(--cantaloupe-orange);
+    font-size: 34px;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.splash-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 100%;
+    max-width: 650px;
+
+    padding-bottom: 45px;
+}
+
+.splash-title {
+    margin: 0 0 15px;
+
+    font-size: clamp(80px, 9vw, 145px);
+    font-weight: 800;
+    letter-spacing: -6px;
+    line-height: 1;
+}
+
+.orange-text {
+    color: var(--cantaloupe-orange);
+}
+
+.splash-subtitle {
+    margin: 0 0 30px;
+
+    font-size: clamp(32px, 3.6vw, 54px);
+    font-weight: 750;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.blue-text {
+    color: var(--electric-blue);
+}
+
+.splash-description {
+    max-width: 480px;
+    margin: 0 0 45px;
+
+    color: #A4B4CF;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.splash-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.splash-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 190px;
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s,
+        background-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.splash-button:hover {
+    transform: translateY(-3px);
+}
+
+.splash-button-primary {
+    background: var(--electric-blue);
+    border: 2px solid var(--electric-blue);
+    color: white;
+}
+
+.splash-button-primary:hover {
+    background: var(--blue-hover);
+    box-shadow: 0 8px 30px rgba(57, 123, 255, 0.3);
+}
+
+.splash-button-secondary {
+    background: rgba(8, 11, 20, 0.45);
+    border: 2px solid var(--cantaloupe-orange);
+    color: var(--cantaloupe-orange);
+}
+
+.splash-button-secondary:hover {
+    background: rgba(255, 173, 122, 0.12);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+
+    .splash-vinyl {
+        top: 0;
+        right: -65%;
+
+        width: 160%;
+        height: 100%;
+
+        opacity: 0.45;
+    }
+
+    .splash-overlay {
+        background: linear-gradient(90deg,
+                rgba(8, 11, 20, 0.96),
+                rgba(8, 11, 20, 0.70));
+    }
+
+    .splash-container {
+        padding: 35px 7%;
+    }
+
+    .splash-content {
+        align-items: center;
+        text-align: center;
+        padding-bottom: 0;
+    }
+
+    .splash-title {
+        font-size: clamp(65px, 14vw, 100px);
+        letter-spacing: -3px;
+    }
+
+    .splash-subtitle {
+        font-size: clamp(30px, 6vw, 42px);
+    }
+
+    .splash-description {
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+
+    .splash-actions {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .splash-button {
+        min-width: 160px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .splash-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .splash-button {
+        width: 100%;
+    }
+}

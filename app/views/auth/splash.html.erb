@@ -1,0 +1,49 @@
+
+<% content_for :page_styles do %>
+  <%= stylesheet_link_tag "splash", "data-turbo-track": "reload" %>
+<% end %>
+
+<main class="splash-page">
+  <div class="splash-vinyl"
+       style="background-image: url('<%= asset_path("vinyl.jpg") %>')">
+  </div>
+
+  <div class="splash-overlay"></div>
+  <div class="splash-glow splash-glow-blue"></div>
+  <div class="splash-glow splash-glow-orange"></div>
+
+  <div class="splash-container">
+
+    <header class="splash-header">
+      <div class="splash-brand">
+        <%= image_tag "audio-waveform.svg", class: "brand-icon" %>
+        <span>Listen</span>
+      </div>
+    </header>
+
+    <section class="splash-content">
+      <h1 class="splash-title">
+        Listen<span class="orange-text">.</span>
+      </h1>
+
+      <h2 class="splash-subtitle">
+        Your music.<br>
+        <span class="blue-text">Your space.</span>
+      </h2>
+
+      <p class="splash-description">
+        A simple place for music lovers to explore,
+        organize, and keep track of what they listen to.
+      </p>
+
+      <div class="splash-actions">
+        <%= link_to "Login", login_path,
+            class: "splash-button splash-button-primary" %>
+
+        <%= link_to "Sign up", sign_up_path,
+            class: "splash-button splash-button-secondary" %>
+      </div>
+    </section>
+
+  </div>
+</main>

@@ -1,0 +1,65 @@
+
+<% content_for :page_styles do %>
+  <%= stylesheet_link_tag "sign_up", "data-turbo-track": "reload" %>
+<% end %>
+
+<main class="signup-page">
+  <section class="signup-card">
+
+    <div class="signup-heading">
+      <%= image_tag "audio-waveform.svg",
+          class: "signup-logo",
+          alt: "Listen logo" %>
+
+      <h1>Create an account<span class="signup-orange">.</span></h1>
+      <p>Join Listen and make music your space.</p>
+    </div>
+
+    <%= form_with url: sign_up_path,
+                  local: true,
+                  method: :post,
+                  html: { class: "signup-form" } do %>
+
+      <div class="signup-form-group">
+        <%= label_tag :email, "Email address" %>
+        <%= email_field_tag :email, nil,
+            placeholder: "you@example.com",
+            autocomplete: "email",
+            required: true,
+            class: "signup-input" %>
+      </div>
+
+      <div class="signup-form-group">
+        <%= label_tag :password, "Password" %>
+        <%= password_field_tag :password, nil,
+            placeholder: "Create a password",
+            autocomplete: "new-password",
+            required: true,
+            class: "signup-input" %>
+      </div>
+
+      <div class="signup-form-group">
+        <%= label_tag :confirm_password, "Confirm password" %>
+        <%= password_field_tag :confirm_password, nil,
+            placeholder: "Repeat your password",
+            autocomplete: "new-password",
+            required: true,
+            class: "signup-input" %>
+      </div>
+
+      <%= submit_tag "Create account", class: "signup-submit" %>
+
+    <% end %>
+
+    <div class="signup-divider">
+      <span>ALREADY A MEMBER?</span>
+    </div>
+
+    <div class="signup-footer">
+      <p>Welcome back to your listening space.</p>
+      <%= link_to "Log in to your account", login_path,
+          class: "signup-login-button" %>
+    </div>
+
+  </section>
+</main>

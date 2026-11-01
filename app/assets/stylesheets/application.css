@@ -8,3 +8,43 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+
+/* ========================================
+   GLOBAL COLOR PALETTE
+======================================== */
+
+:root {
+    --midnight-black: #080B14;
+    --card-black: #111827;
+    --electric-blue: #397BFF;
+    --blue-hover: #5590FF;
+    --cantaloupe-orange: #FFAD7A;
+
+    --text-primary: #F4F6FC;
+    --text-secondary: #929DB3;
+    --input-background: #0B1220;
+    --border-color: #26344D;
+}
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: var(--midnight-black);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+}
