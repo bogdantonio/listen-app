@@ -1,6 +1,5 @@
-
 <% content_for :page_styles do %>
-  <%= stylesheet_link_tag "splash", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "splash/splash", "data-turbo-track": "reload" %>
 <% end %>
 
 <main class="splash-page">
@@ -37,10 +36,10 @@
       </p>
 
       <div class="splash-actions">
-        <%= link_to "Login", login_path,
+        <%= link_to "Login", new_session_path,
             class: "splash-button splash-button-primary" %>
 
-        <%= link_to "Sign up", sign_up_path,
+        <%= link_to "Sign up", new_registration_path,
             class: "splash-button splash-button-secondary" %>
       </div>
     </section>

@@ -1,4 +1,31 @@
 Rails.application.routes.draw do
+  # generate routes for managing a single session
+  #
+  # sessions#new
+  # sessions#edit
+  # sessions#create
+  # sessions#destroy
+  #
+  # see all generated routes by running "bin/rails routes-g session"
+  resource :session
+
+  # generate routes for the password reset/update flow
+  #
+  # passwords#new
+  # passwords#create
+  # passwords#edit
+  # passwords#update
+  # see all generated routes by running "bin/rails routes-g passwords"
+  resources :passwords, param: :token
+
+  # generate routes for the managing registrations
+  #
+  # registrations#new
+  # registrations#create
+  #
+  # only "new" and "create" actions are bounded to routes
+  resource :registration, only: %i[new create]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,15 +37,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "auth#splash"
+  root "splash#splash"
 
-  get "/sign_up", to: "auth#sign_up"
-  post "/signup", to: "auth#signup"
-
-  get "/login", to: "auth#login"
-  post "/login", to: "auth#login"
-
-  get "/password_reset", to: "auth#password_reset"
-
-  get "/home", to: "home#home"
+  get "/home", to: "home#index"
 end

@@ -1,8 +1,8 @@
 /* ========================================
-   LOGIN PAGE BACKGROUND
+   SIGN UP PAGE
 ======================================== */
 
-.auth-page {
+.signup-page {
     min-height: 100vh;
     min-height: 100svh;
     width: 100%;
@@ -24,16 +24,16 @@
 }
 
 /* ========================================
-   LOGIN CARD
+   SIGN UP CARD
 ======================================== */
 
-.auth-card {
+.signup-card {
     position: relative;
 
     width: 100%;
     max-width: 460px;
 
-    padding: 48px 42px;
+    padding: 38px 42px;
 
     background: rgba(17, 24, 39, 0.94);
 
@@ -45,9 +45,9 @@
         0 0 60px rgba(57, 123, 255, 0.04);
 }
 
-/* Subtle blue line at the top of the card */
+/* Subtle blue highlight at the top */
 
-.auth-card::before {
+.signup-card::before {
     content: "";
 
     position: absolute;
@@ -67,67 +67,93 @@
    HEADING AND LOGO
 ======================================== */
 
-.auth-heading {
+.signup-heading {
     text-align: center;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
 }
 
-.auth-logo {
+.signup-logo {
     width: 44px;
     height: 44px;
 
     margin-bottom: 18px;
 }
 
-.auth-heading h1 {
+.signup-heading h1 {
     margin: 0 0 12px;
 
-    font-size: clamp(27px, 4vw, 34px);
+    font-size: clamp(26px, 4vw, 32px);
     font-weight: 800;
     letter-spacing: -1.3px;
 }
 
-.orange-text {
+.signup-orange {
     color: var(--cantaloupe-orange);
 }
 
-.auth-heading p {
+.signup-heading p {
     margin: 0;
-    color: var(--text-secondary);
 
+    color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.6;
+}
+
+/* ========================================
+   FLASH MESSAGES
+======================================== */
+
+.auth-alert,
+.auth-notice {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.auth-alert {
+    color: #FF9292;
+    background: rgba(239, 68, 68, 0.10);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.auth-notice {
+    color: #8FD9B1;
+    background: rgba(34, 197, 94, 0.10);
+    border: 1px solid rgba(34, 197, 94, 0.30);
 }
 
 /* ========================================
    FORM
 ======================================== */
 
-.auth-form {
+.signup-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 19px;
 }
 
-.form-group {
+.signup-form-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 }
 
-.form-group label {
+.signup-form-group label {
     color: var(--text-primary);
     font-size: 13px;
     font-weight: 600;
 }
 
-.auth-input {
+.signup-input {
     width: 100%;
     height: 52px;
 
     padding: 0 16px;
 
     background: rgba(8, 11, 20, 0.75);
+
     border: 1px solid var(--border-color);
     border-radius: 12px;
 
@@ -142,17 +168,16 @@
         background 0.2s;
 }
 
-.auth-input::placeholder {
+.signup-input::placeholder {
     color: #67748C;
 }
 
-.auth-input:hover {
+.signup-input:hover {
     border-color: #40516E;
 }
 
-.auth-input:focus {
+.signup-input:focus {
     background: var(--input-background);
-
     border-color: var(--electric-blue);
 
     box-shadow:
@@ -160,39 +185,14 @@
 }
 
 /* ========================================
-   PASSWORD LABEL AND LINK
+   CREATE ACCOUNT BUTTON
 ======================================== */
 
-.password-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-}
-
-.forgot-link {
-    color: var(--cantaloupe-orange);
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition: color 0.2s;
-}
-
-.forgot-link:hover {
-    color: #FFCAA7;
-    text-decoration: underline;
-}
-
-/* ========================================
-   LOGIN BUTTON
-======================================== */
-
-.auth-button {
+.signup-submit {
     width: 100%;
-    min-height: 52px;
+    min-height: 46px;
 
-    margin-top: 6px;
+    margin-top: 4px;
     padding: 14px 20px;
 
     background: var(--electric-blue);
@@ -206,7 +206,8 @@
 
     cursor: pointer;
 
-    box-shadow: 0 6px 22px rgba(57, 123, 255, 0.18);
+    box-shadow:
+        0 6px 22px rgba(57, 123, 255, 0.18);
 
     transition:
         background-color 0.2s,
@@ -214,15 +215,16 @@
         transform 0.2s;
 }
 
-.auth-button:hover {
+.signup-submit:hover {
     background: var(--blue-hover);
 
-    box-shadow: 0 10px 30px rgba(57, 123, 255, 0.28);
+    box-shadow:
+        0 10px 30px rgba(57, 123, 255, 0.28);
 
     transform: translateY(-2px);
 }
 
-.auth-button:active {
+.signup-submit:active {
     transform: translateY(0);
 }
 
@@ -230,14 +232,12 @@
    DIVIDER
 ======================================== */
 
-.auth-divider {
-    position: relative;
-
+.signup-divider {
     display: flex;
     align-items: center;
     gap: 15px;
 
-    margin: 32px 0 22px;
+    margin: 22px 0 16px;
 
     color: #75839B;
 
@@ -246,8 +246,8 @@
     letter-spacing: 2px;
 }
 
-.auth-divider::before,
-.auth-divider::after {
+.signup-divider::before,
+.signup-divider::after {
     content: "";
     flex: 1;
 
@@ -255,32 +255,32 @@
     background: var(--border-color);
 }
 
-.auth-divider span {
+.signup-divider span {
     white-space: nowrap;
 }
 
 /* ========================================
-   SIGN UP FOOTER
+   LOGIN FOOTER
 ======================================== */
 
-.auth-footer {
+.signup-footer {
     text-align: center;
 }
 
-.auth-footer p {
-    margin: 0 0 17px;
+.signup-footer p {
+    margin: 0 0 18px;
 
     color: var(--text-secondary);
     font-size: 13px;
 }
 
-.signup-button {
+.signup-login-button {
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 100%;
-    min-height: 50px;
+    min-height: 46px;
 
     padding: 12px 20px;
 
@@ -300,7 +300,7 @@
         transform 0.2s;
 }
 
-.signup-button:hover {
+.signup-login-button:hover {
     background: rgba(255, 173, 122, 0.10);
     transform: translateY(-2px);
 }
@@ -310,24 +310,24 @@
 ======================================== */
 
 @media (max-width: 480px) {
-    .auth-page {
+    .signup-page {
         padding: 20px 15px;
     }
 
-    .auth-card {
-        padding: 36px 24px;
+    .signup-card {
+        padding: 34px 24px;
         border-radius: 18px;
     }
 
-    .auth-heading {
-        margin-bottom: 30px;
+    .signup-heading {
+        margin-bottom: 26px;
     }
 
-    .auth-heading h1 {
-        font-size: 28px;
+    .signup-heading h1 {
+        font-size: 27px;
     }
 
-    .auth-form {
-        gap: 20px;
+    .signup-form {
+        gap: 17px;
     }
 }

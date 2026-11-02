@@ -1,6 +1,5 @@
-
 <% content_for :page_styles do %>
-  <%= stylesheet_link_tag "sign_up", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "registrations/registration", "data-turbo-track": "reload" %>
 <% end %>
 
 <main class="signup-page">
@@ -15,7 +14,10 @@
       <p>Join Listen and make music your space.</p>
     </div>
 
-    <%= form_with url: sign_up_path,
+    <%= tag.div(flash[:alert], class: "auth-alert", role: "alert") if flash[:alert] %>
+    <%= tag.div(flash[:notice], class: "auth-notice", role: "status") if flash[:notice] %>
+
+    <%= form_with url: registration_path,
                   local: true,
                   method: :post,
                   html: { class: "signup-form" } do %>
@@ -57,7 +59,7 @@
 
     <div class="signup-footer">
       <p>Welcome back to your listening space.</p>
-      <%= link_to "Log in to your account", login_path,
+      <%= link_to "Log in to your account", new_session_path,
           class: "signup-login-button" %>
     </div>
 
