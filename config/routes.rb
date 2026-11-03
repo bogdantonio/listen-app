@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   # generate routes for managing a single session
   #
   # sessions#new
-  # sessions#edit
   # sessions#create
   # sessions#destroy
   #
-  # see all generated routes by running "bin/rails routes-g session"
-  resource :session
+  resource :session, only: [ :new, :create, :destroy ]
 
   # generate routes for the password reset/update flow
   #
@@ -15,8 +13,8 @@ Rails.application.routes.draw do
   # passwords#create
   # passwords#edit
   # passwords#update
-  # see all generated routes by running "bin/rails routes-g passwords"
-  resources :passwords, param: :token
+  #
+  resources :passwords, only: [ :new, :create, :edit, :update ], param: :token
 
   # generate routes for the managing registrations
   #
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   # registrations#create
   #
   # only "new" and "create" actions are bounded to routes
-  resource :registration, only: %i[new create]
+  resource :registration, only: [ :new, :create ]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
